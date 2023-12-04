@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-
+const workoutsRouter = require('./routes/workouts');
 
 //express app
 const app = express();
@@ -13,10 +13,13 @@ app.use((req, res, next) => {
     next();
 })
 
+
 //routes
-app.get('/' , (req, res) => {
-    res.json({message: 'Hello World'});
-})
+app.use('/api/workouts',workoutsRouter); 
+ // it graps all the routes from workouts.js
+ // the first argument is the path, the second argument is the router object 
+ // when we get to the path /api/workouts, we will use the workoutsRouter object to handle the request
+
 
 
 //listen for requests
