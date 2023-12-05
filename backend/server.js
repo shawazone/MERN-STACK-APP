@@ -7,7 +7,7 @@ const app = express();
 
 
 //middleware
-
+app.use(express.json()); //this is a middleware that parses the request body as JSON
 app.use((req, res, next) => {
     console.log('middleware running');
     next();
