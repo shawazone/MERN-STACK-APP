@@ -8,6 +8,12 @@ export default function NavBar() {
       <Link to='/' >
         <h1>Workout Tracker</h1>
         </Link>
+        <Link to='/' >
+        <h1>Workout Tracker</h1>
+        </Link>
+        <Link to='/' >
+        <h1>Workout Tracker</h1>
+        </Link>
     </div>
     </header>
   )
