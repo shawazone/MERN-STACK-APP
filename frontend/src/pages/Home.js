@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 
 //components
 import WorkoutDetails from '../components/WorkoutDetails'
+import WorkoutForm from '../components/WorkoutForm'
+
 
 export default function Home() {
 
@@ -32,7 +34,7 @@ const [workouts, setWorkouts] = useState(null)
 
         ))}
       </div>
-      
+      <WorkoutForm />
     </div>
   )
 }
