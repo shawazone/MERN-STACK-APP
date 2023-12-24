@@ -22,12 +22,12 @@ export const WorkoutContextProvider = ({children}) => {  // provider is a compon
  // the children prop represent whatever is inside the provider component
  // here the children prop is the App component
 
- const [state, dispatch] = useReducer(WScriptorkoutsReducer, {
+ const [state, dispatch] = useReducer(workoutsReducer, {
     workouts: null
  })
     return (
 
-     <WorkoutContext.Provider value={{state, dispatch}}>
+     <WorkoutContext.Provider value={{...state, dispatch}}>
          {children}
      </WorkoutContext.Provider>
         )
