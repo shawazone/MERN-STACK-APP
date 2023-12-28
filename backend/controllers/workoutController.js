@@ -24,6 +24,8 @@ const getSingleWorkout = async (req, res) => {
 
 const createWorkout = async (req, res) => {
     const {title, load, reps} = req.body
+
+    let emtyFields = []
     
     try {
       const workout = await Workout.create({title, load, reps})
