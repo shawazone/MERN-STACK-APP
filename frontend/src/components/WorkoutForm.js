@@ -9,7 +9,7 @@ const WorkoutForm = () => {
   const [load, setLoad] = useState('')
   const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
-
+  const [emtyFields, setEmtyFields] = useState([])
   
 
   const handleSubmit = async (e) => {
@@ -26,12 +26,14 @@ const WorkoutForm = () => {
 
     if (!response.ok) {
       setError(json.error)
+      setEmtyFields(json.emtyFields)
     }
     if (response.ok) {
       setError(null)
       setTitle('')
       setLoad('')
       setReps('')
+      setEmtyFields([])
       console.log('workout added', json)
       dispatch({type:'CREATE_WORKOUT', payload:json})
     }
@@ -45,6 +47,7 @@ const WorkoutForm = () => {
     type='text'
     onChange={(e) => setTitle(e.target.value)}
     value={title}
+    className={emtyFields.includes('title') ? 'error' : ''}
     />
 
     <label>Exersice load</label>
@@ -52,6 +55,8 @@ const WorkoutForm = () => {
     type='number'
     onChange={(e) => setLoad(e.target.value)}
     value={load}
+    className={emtyFields.includes('load') ? 'error' : ''}
+
     />
 
     <label>Exersice reps</label>
@@ -59,6 +64,8 @@ const WorkoutForm = () => {
     type='number'
     onChange={(e) => setReps(e.target.value)}
     value={reps}
+    className={emtyFields.includes('reps') ? 'error' : ''}
+
     />
 
     <button>Add Workout</button>

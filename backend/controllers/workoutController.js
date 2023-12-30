@@ -26,6 +26,23 @@ const createWorkout = async (req, res) => {
     const {title, load, reps} = req.body
 
     let emtyFields = []
+
+    if (!title) {
+        emtyFields.push('title')
+
+    }
+    if (!load) {
+        emtyFields.push('load')
+
+    }
+    if (!reps) {
+        emtyFields.push('reps')
+
+    }
+    if (emtyFields.length > 0) {
+       return res.status(400).json({error: 'please fill in the following fields', emtyFields})
+    }
+
     
     try {
       const workout = await Workout.create({title, load, reps})
