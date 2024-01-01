@@ -56,7 +56,17 @@ header a {
   font-size: 0.9em;
   color: #555;
 }
-.workout-details span {
+/* .workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+} */
+.workout-details .deleteBtn{
   position: absolute;
   top: 20px;
   right: 20px;
@@ -66,6 +76,26 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+.workout-details .deleteBtn:hover{
+  background: #e7195a;
+  color: #fff;
+}
+
+.workout-details .updateBtn{
+  position: absolute;
+  top: 20px;
+  right: 90px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+.workout-details .updateBtn:hover{
+  background: #1aac83;
+  color: #fff;
+}
+
 
 /* new workout form */
 label, input {

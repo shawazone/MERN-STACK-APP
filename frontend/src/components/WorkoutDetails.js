@@ -1,9 +1,12 @@
 import React from 'react'
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
-
-
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const WorkoutDetails = ({workout}) => {
+
+
+
   const {dispatch} = useWorkoutsContext() 
   
   const handleClick = async() => {
@@ -18,6 +21,12 @@ const WorkoutDetails = ({workout}) => {
     }
   }
 
+  const navigate = useNavigate()
+   const handelUpdateClick = async() => {
+      navigate('/Update/'+workout._id)
+   }
+  
+
 
   return (
     <div className='workout-details'>
@@ -25,7 +34,8 @@ const WorkoutDetails = ({workout}) => {
         <p><strong>Load (kg):</strong>{workout.load}</p>
         <p><strong>Reps:</strong>{workout.reps}</p>
         <p>{workout.ceated}</p>
-        <span onClick={handleClick}>delete</span>
+        <span className='updateBtn'><Link to={`/Update/${workout._id}`}>update</Link></span>
+        <span className='deleteBtn' onClick={handleClick}>delete</span>
     </div>
   )
 }

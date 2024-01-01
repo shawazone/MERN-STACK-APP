@@ -20,7 +20,7 @@ const {workouts, dispatch }= useWorkoutsContext()
       const json = await response.json()
      
       if (response.ok) {
-        console.log(json)
+        // console.log(json)
         // setWorkouts(json)
         dispatch({type:'SET_WORKOUTS', payload:json})
       } }
