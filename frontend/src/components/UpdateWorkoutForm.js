@@ -4,7 +4,7 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import {  useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-const UpdateWorkoutForm =  ({content}) => {
+const UpdateWorkoutForm =  ({workouts}) => {
   const { id } = useParams(); 
   // Use the useParams hook to get the blogId from the URL
 
@@ -12,14 +12,14 @@ const UpdateWorkoutForm =  ({content}) => {
    // Log the blogId to the console to make sure it's working
   const navigate  = useNavigate();  
  
-//   console.log(content)
+  console.log(workouts)
 
 
 
   const { dispatch } = useWorkoutsContext()
-  const [title, setTitle] = useState(content?.title)
-  const [load, setLoad] = useState(content?.load)
-  const [reps, setReps] = useState(content?.reps)
+  const [title, setTitle] = useState(workouts?.title)
+  const [load, setLoad] = useState(workouts?.load)
+  const [reps, setReps] = useState(workouts?.reps)
   const [error, setError] = useState(null)
   const [emtyFields, setEmtyFields] = useState([])
 

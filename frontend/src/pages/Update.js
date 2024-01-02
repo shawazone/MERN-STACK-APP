@@ -3,11 +3,15 @@ import { useState, useEffect } from 'react'
 import {  useParams } from 'react-router-dom';
 
 import UpdateWorkoutForm from '../components/UpdateWorkoutForm'
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+
+
 
 export default function Update() {
     const { id } = useParams(); // Use the useParams hook to get the blogId from the URL
+    const {workouts, dispatch }= useWorkoutsContext() 
 
-    const [content, setContent] = useState(null)
+ 
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -16,7 +20,9 @@ export default function Update() {
      
       if (response.ok) {
         console.log(json.title)
-        setContent(json)
+        // setContent(json)
+        dispatch({type:'SET_WORKOUTS', payload:json})
+
       } }
 
     fetchWorkouts()
@@ -27,7 +33,7 @@ export default function Update() {
 
   return (
     <div>
-        <UpdateWorkoutForm   content={content}/>
+        <UpdateWorkoutForm   workouts={workouts}/>
     </div>
   )
 }
