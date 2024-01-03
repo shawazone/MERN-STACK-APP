@@ -12,7 +12,7 @@ export default function Update() {
     const {workouts, dispatch }= useWorkoutsContext() 
 
  
-
+// using the context did not solve the issue
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(`/api/workouts/${id}`)
