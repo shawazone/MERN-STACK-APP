@@ -10,7 +10,7 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 export default function Update() {
     const { id } = useParams(); // Use the useParams hook to get the blogId from the URL
     const {workouts, dispatch }= useWorkoutsContext() 
-
+    // const {workoutTitle, setWorkoutTitle} = useState('')
  
 // using the context did not solve the issue
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function Update() {
       if (response.ok) {
         console.log(json.title)
         // setContent(json)
+        // setWorkoutTitle(json.title)
         dispatch({type:'SET_WORKOUTS', payload:json})
 
       } }
@@ -33,7 +34,7 @@ export default function Update() {
 
   return (
     <div>
-        <UpdateWorkoutForm   workouts={workouts}/>
+        <UpdateWorkoutForm   workouts={workouts} />
     </div>
   )
 }

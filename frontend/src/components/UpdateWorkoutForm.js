@@ -12,14 +12,32 @@ const UpdateWorkoutForm =  ({workouts}) => {
    // Log the blogId to the console to make sure it's working
   const navigate  = useNavigate();  
  
-  console.log(workouts)
+  // console.log(workouts)
+
+ const [content, setContent] = useState('')
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const response = await fetch(`/api/workouts/${id}`)
+      const json = await response.json()
+     
+      if (response.ok) {
+        console.log(json.title)
+        setTitle(json.title)
+        setLoad(json.load)
+        setReps(json.reps)
+        // dispatch({type:'SET_WORKOUTS', payload:json})
+
+      } }
+
+    fetchWorkouts()
+  },[])
 
 
 
   const { dispatch } = useWorkoutsContext()
-  const [title, setTitle] = useState(workouts?.title)
-  const [load, setLoad] = useState(workouts?.load)
-  const [reps, setReps] = useState(workouts?.reps)
+  const [title, setTitle] = useState('');
+  const [load, setLoad] = useState('')
+  const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
   const [emtyFields, setEmtyFields] = useState([])
 
@@ -48,7 +66,7 @@ const UpdateWorkoutForm =  ({workouts}) => {
       setReps('')
       setEmtyFields([])
       console.log('workout added', json)
-      dispatch({type:'CREATE_WORKOUT', payload:json})
+      dispatch({type:'UPDATE_WORKOUT', payload:json})
       navigate('/')
     }
   }

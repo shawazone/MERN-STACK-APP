@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useEffect } from 'react'
+import {useState, useEffect } from 'react'
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 
@@ -11,7 +11,7 @@ import WorkoutForm from '../components/WorkoutForm'
 
 export default function Home() {
 
-// const [workouts, setWorkouts] = useState(null)
+// const [workouts, setWorkouts] = useState()
 const {workouts, dispatch }= useWorkoutsContext() 
 
   useEffect(() => {
@@ -33,12 +33,16 @@ const {workouts, dispatch }= useWorkoutsContext()
   return (
     <div className='home'>
       <div className='workouts'>
-        {workouts && workouts.map((workout) => (
-          <WorkoutDetails key={workout.id} workout={workout} />
-
-        ))}
+        {workouts && Array.isArray(workouts) && workouts.length > 0 ? (
+          workouts.map((workout) => (
+            <WorkoutDetails key={workout.id} workout={workout} />
+          ))
+        ) : (
+          <p>No workouts available</p>
+        )}
       </div>
       <WorkoutForm />
     </div>
   )
-}
+  
+        }
