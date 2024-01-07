@@ -26,6 +26,7 @@ const UpdateWorkoutForm =  ({workouts}) => {
         setLoad(json.load)
         setReps(json.reps)
         // dispatch({type:'SET_WORKOUTS', payload:json})
+        // console.log(json)
 
       } }
 
