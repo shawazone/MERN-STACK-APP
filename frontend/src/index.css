@@ -38,6 +38,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
 .workout-details {
   background: #fff;
   border-radius: 4px;
@@ -46,12 +47,24 @@ header a {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
+.link-border{
+  border: 1px dotted  #1aac83;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px; 
+}
+
+.link-border :hover{
+ color:   #a414be;
+}
+
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
 }
 .workout-details p {
+  display: flex;
   margin: 0;
   font-size: 0.9em;
   color: #555;
@@ -66,15 +79,30 @@ header a {
   border-radius: 50%;
   color: #333;
 } */
+
+.workout-details  .buttons-spacing {
+  display: flex;
+  justify-content: right;
+  align-items: flex-start;
+  
+}
 .workout-details .deleteBtn{
-  position: absolute;
+  /* position: block;
   top: 20px;
   right: 20px;
   cursor: pointer;
   background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: #333; */
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
 }
 .workout-details .deleteBtn:hover{
   background: #e7195a;
@@ -82,17 +110,25 @@ header a {
 }
 
 .workout-details .updateBtn{
-  position: absolute;
+  /* position: block;
   top: 20px;
   right: 90px;
   cursor: pointer;
   background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: #333; */
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
 }
 .workout-details .updateBtn:hover{
-  background: #1aac83;
+  background: #a414be;
   color: #fff;
 }
 

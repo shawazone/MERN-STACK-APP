@@ -29,15 +29,20 @@ const WorkoutDetails = ({workout}) => {
 
 
   return (
+    
     <div className='workout-details'>
-      <Link to={ `/WorkoutPage/${workout._id}`}  style={{ textDecoration: 'none' }}>
+      <div className='link-border'>
+      <Link to={ `/WorkoutPage/${workout._id}`}  style={{ textDecoration: 'none'}}>
         <h4>{workout.title}</h4>
         <p><strong>Load (kg):</strong>{workout.load}</p>
         <p><strong>Reps:</strong>{workout.reps}</p>
         <p>{workout.ceated}</p>
-        <span className='updateBtn'><Link to={`/Update/${workout._id}`} style={{ textDecoration: 'none' }}>update</Link></span>
-        <span className='deleteBtn' onClick={handleClick}>delete</span>
         </Link>
+      </div>
+        <div className='buttons-spacing'>
+        <span className='updateBtn'><Link to={`/Update/${workout._id}`} style={{ textDecoration: 'none' , color: 'white'}}>update</Link></span>
+        <span className='deleteBtn' onClick={handleClick}>delete</span>
+        </div>
     </div>
   )
 }
