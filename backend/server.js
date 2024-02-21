@@ -2,7 +2,9 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+
 const workoutsRouter = require('./routes/workouts');
+const usersRouter = require('./routes/user');
 
 //express app
 const app = express();
@@ -22,6 +24,7 @@ app.use('/api/workouts',workoutsRouter);
  // the first argument is the path, the second argument is the router object 
  // when we get to the path /api/workouts, we will use the workoutsRouter object to handle the request
 
+app.use('/api/user',usersRouter)
 
 
 
