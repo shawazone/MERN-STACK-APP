@@ -25,7 +25,7 @@ const {workouts, dispatch }= useWorkoutsContext()
         dispatch({type:'SET_WORKOUTS', payload:json})
       } }
 
-    fetchWorkouts()
+    fetchWorkouts() 
   },[])
 
 

@@ -13,7 +13,7 @@ export default function Update() {
     // const {workoutTitle, setWorkoutTitle} = useState('')
  
 // using the context did not solve the issue
-  useEffect(() => {
+useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(`/api/workouts/${id}`)
       const json = await response.json()

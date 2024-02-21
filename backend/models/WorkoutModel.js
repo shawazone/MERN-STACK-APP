@@ -14,7 +14,7 @@ const workoutSchema = new Schema({
     },
 
 
-    load:{
+    load:{  
         type: Number,
         required: true
     }

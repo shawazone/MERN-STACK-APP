@@ -7,11 +7,12 @@ export default function SingleWorkoutDetail() {
 
     const { id } = useParams();
   
+    
 
     useEffect(() => {
         const fetchWorkouts = async () => {
           const response = await fetch(`/api/workouts/${id}`)
-          const json = await response.json()
+          const json = await response.json()  
          
           if (response.ok) {
             console.log(json.title)
