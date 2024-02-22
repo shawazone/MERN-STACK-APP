@@ -6,10 +6,21 @@ res.json({message: 'login user'});
 };
 
 
-const signupUser = (req, res) => {
-res.json({message: 'signup user'});
-};
 //signup user
+const signupUser = async (req, res) => {
+    const {email, password} = req.body;
+
+    try{
+        const user = await User.signup(email, password);
+   
+        res.status(201).json({email, user});
+    }
+    catch(err){
+        res.status(400).json({message: err.message});
+    }
+
+// res.json({message: 'signup user'});
+};
 
 
 module.exports = {
