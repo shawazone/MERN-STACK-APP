@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const validator = require('validator');
 
 const schema = mongoose.Schema;
 
@@ -21,6 +22,24 @@ const userSchema = new schema({
 //static signup method
 
 userSchema.statics.signup = async function(email, password) {
+
+    //validation
+
+    if (!email || !password){
+        throw Error('All fields must be filled');
+    }
+    if(!validator.isEmail(email)){
+        throw Error('Invalid email');
+    }
+    if(!validator.isStrongPassword(password)){
+        throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
+    }
+
+
+
+
+
+
 //  this key word doesnt work with arrow function
     const exists = await this.findOne({email})
   //this is a reference to the model object
