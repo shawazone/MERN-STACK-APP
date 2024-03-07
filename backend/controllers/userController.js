@@ -1,5 +1,9 @@
 const User = require('../models/userModel');
+const jwt = require('jsonwetoken');
 
+const createToken = (_id) => {
+    jwt.sign({_id:_id},process.env.);// do not put sensetive data here like password or email or anything that can be used to identify the user
+}
 //login user
 const loginUser = (req, res) => {
 res.json({message: 'login user'});
