@@ -1,6 +1,6 @@
 const express = require('express');
 const Workout = require('../models/WorkoutModel');
-const {getWorkouts, createWorkout, getSingleWorkout,deleteWorkout , updateWorkout} = require('../controllers/workoutcontroller');
+const {getWorkouts, createWorkout, getSingleWorkout,deleteWorkout , updateWorkout} = require('../controllers/workoutController');
 const router = express.Router();
 
 //GET all workouts
