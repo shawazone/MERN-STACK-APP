@@ -10,12 +10,12 @@ const userSchema = new schema({
         required: true,
         unique: true, // security layer
         trim: true,
-        minlength: 3
+        minlength: 1
     },
     password: {
         type: String,
         required: true,
-        minlength: 3
+        minlength: 1
     }
 });
 
@@ -28,12 +28,12 @@ userSchema.statics.signup = async function(email, password) {
     if (!email || !password){
         throw Error('All fields must be filled');
     }
-    if(!validator.isEmail(email)){
-        throw Error('Invalid email');
-    }
-    if(!validator.isStrongPassword(password)){
-        throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
-    }
+    // if(!validator.isEmail(email)){
+    //     throw Error('Invalid email');
+    // }
+    // if(!validator.isStrongPassword(password)){
+    //     throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
+    // }
     //sitll wrokin in it
 
 
