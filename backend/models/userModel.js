@@ -27,13 +27,14 @@ userSchema.statics.signup = async function(email, password) {
 
     if (!email || !password){
         throw Error('All fields must be filled');
+        res.status(400).json({error: 'All fields must be filled'})
     }
-    // if(!validator.isEmail(email)){
-    //     throw Error('Invalid email');
-    // }
+    if(!validator.isEmail(email)){
+        throw Error('Invalid email');
+    }
     // if(!validator.isStrongPassword(password)){
     //     throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
-    // }
+    //  }
     //sitll wrokin in it
 
 
@@ -73,6 +74,7 @@ userSchema.statics.login = async function(email, password) {
     const match = await bcrypt.compare(password, user.password)
     if (!match) {
       throw Error('Incorrect password')
+      res.status(400).json({error: 'Incorrect password'})
     }
   
     return user
