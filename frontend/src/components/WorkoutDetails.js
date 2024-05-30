@@ -40,8 +40,8 @@ const WorkoutDetails = ({workout}) => {
         </Link>
       </div>
         <div className='buttons-spacing'>
-        <span className='updateBtn'><Link to={`/Update/${workout._id}`} style={{ textDecoration: 'none' , color: 'white'}}>update</Link></span>
-        <span className='deleteBtn' onClick={handleClick}>delete</span>
+        <span className='updateBtn'><Link to={`/Update/${workout._id}`} style={{ textDecoration: 'none' , color: 'green'}} onClick={handelUpdateClick}>update</Link></span>
+        <span className='deleteBtn' onClick={handleClick} style={{ textDecoration: 'none' , color: 'red'}}>delete</span>
         </div>
     </div>
   )
